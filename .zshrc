@@ -15,7 +15,7 @@ eval "$(zoxide init zsh)"
 
 # ======= Environment =======
 export LANG=en_US.UTF-8
-export PATH="$PATH:$HOME/.local/bin:$HOME/.spicetify:$HOME/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.spicetify:$HOME/bin:$HOME/.cargo/bin"
 
 # ======= Functions =======
 
