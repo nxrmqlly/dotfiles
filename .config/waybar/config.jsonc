@@ -28,7 +28,7 @@
   },
   "mpris": {
     "format": "{player_icon} {title} | {artist} - {length}",
-    "format-paused": "{status_icon} <i>{title} | {artist} - {length}</i>",
+    "format-paused": "{status_icon} <i>{title} | {artist}</i>",
     "player-icons": {
       "default": "▶"
     },
@@ -47,10 +47,10 @@
     "tooltip-format": "{calendar}",
     "calendar": {
       "format": {
-        "months": "<span color='#D3D04F'><b>{}</b></span>",
-        "days": "<span color='#93B1A6'><b>{}</b></span>",
-        "weekdays": "<span color='#8EAC50'><b>{}</b></span>",
-        "today": "<span color='#8EAC50'><b><u>{}</u></b></span>"
+        "months": "<span color='#dbbc7f'><b>{}</b></span>",
+        "days": "<span color='#495156'><b>{}</b></span>",
+        "weekdays": "<span color='#e69875'><b>{}</b></span>",
+        "today": "<span color='#a7c080'><b>{}</b></span>"
       }
     }
   },
@@ -75,15 +75,15 @@
     "escape": true
   },
   "network": {
-    "format": "{ifname}",
-    "format-wifi": "󰤨  {essid} {bandwidthTotalBytes}",
+    "format": "󰖪",
+    "format-wifi": "󰤨 {essid} {bandwidthTotalBytes}",
     "format-ethernet": "󱓞 Ethernet {bandwidthTotalBytes}",
     "format-disconnected": "󰤭",
     "tooltip-format": "{ifname} via {gwaddr} 󰊗",
-    "tooltip-format-wifi": "󰤢   Signal Strength:  {signalStrength}%",
-    "tooltip-format-ethernet": "󰊗   Signal Strength:  {signalStrength}%",
-    "on-click": "~/.config/waybar/scripts/wofi-wifi-menu.sh",
+    "tooltip-format-wifi": "󰤢 Signal Strength: {signalStrength}%",
+    "tooltip-format-ethernet": "󰊗 Signal Strength:  {signalStrength}%",
     "tooltip-format-disconnected": "Disconnected",
+    "on-click": "~/.config/waybar/scripts/wofi-wifi-menu.sh",
     "max-length": 50,
     "interval": 5
   },
