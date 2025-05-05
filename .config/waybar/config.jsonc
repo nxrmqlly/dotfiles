@@ -78,11 +78,11 @@
     "format": "{ifname}",
     "format-wifi": "󰤨  {essid} {bandwidthTotalBytes}",
     "format-ethernet": "󱓞 Ethernet {bandwidthTotalBytes}",
-    "format-disconnected": "󰤭 ",
+    "format-disconnected": "󰤭",
     "tooltip-format": "{ifname} via {gwaddr} 󰊗",
     "tooltip-format-wifi": "󰤢   Signal Strength:  {signalStrength}%",
     "tooltip-format-ethernet": "󰊗   Signal Strength:  {signalStrength}%",
-    "on-click": "~/.config/waybar/scripts/rofi-wifi-menu.sh",
+    "on-click": "~/.config/waybar/scripts/wofi-wifi-menu.sh",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50,
     "interval": 5
