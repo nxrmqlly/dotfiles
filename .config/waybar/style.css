@@ -30,11 +30,11 @@ tooltip {
 #mpris,
 #workspaces {
   background: @crust;
-  border-radius: 8px;
+  border-radius: 99999px;
   border: 1px solid @crust;
   font-weight: 600;
   margin: 6px 0 6px 0;
-  padding: 3.5px 16px;
+  padding: 0px 16px;
 }
 
 #tray {
@@ -63,8 +63,7 @@ tooltip {
 }
 
 #workspaces button.active {
-  background: @color2;
-  color: @color8;
+  color: @color7;
 }
 
 #workspaces button.focused {
@@ -78,7 +77,6 @@ tooltip {
 }
 
 #workspaces button:hover {
-  background: @crust;
   color: @color7;
 }
 
