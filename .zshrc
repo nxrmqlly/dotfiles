@@ -95,11 +95,6 @@ alias cat='bat --color=always --theme="Catppuccin Macchiato"'
 
 
 
-# ======= Oh My Posh (Prompt) =======
-if command -v oh-my-posh >/dev/null; then
-  eval "$(oh-my-posh init zsh --config ~/.cache/oh-my-posh/themes/pure.omp.json)"
-fi
-
 # bun completions
 [ -s "/home/ritam/.bun/_bun" ] && source "/home/ritam/.bun/_bun"
 
@@ -114,3 +109,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # loads nvm bash_completion
 
+# ======= Oh My Posh (Prompt) =======
+if command -v oh-my-posh >/dev/null; then
+  eval "$(oh-my-posh init zsh --config ~/.cache/oh-my-posh/themes/pure.omp.json)"
+fi
