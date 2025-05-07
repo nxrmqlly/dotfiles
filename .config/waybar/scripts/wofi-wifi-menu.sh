@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# A script that generates a wofi menu that uses nmcli to
+# toggle, list and connect to wifi networks.
+
 notify-send "Getting list of available Wi-Fi networks..."
 
 wifi_list=$(nmcli --fields "SECURITY,SSID" device wifi list | sed 1d | sed 's/  */ /g' | sed -E "s/WPA*.?\S/ /g" | sed "s/^--/ /g" | sed "s/  //g" | sed "/--/d")

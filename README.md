@@ -1,5 +1,6 @@
 # dotfiles
 Ritam's *nix dotfiles
+> *"From bare TTYs, I forged my throne—hyprland my crown, configs my own."*
 
 ## Prerequisites
 1. [GNU Stow](https://www.gnu.org/software/stow/)

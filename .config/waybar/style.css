@@ -20,6 +20,7 @@ tooltip {
 
 #backlight,
 #cpu,
+#bluetooth,
 #custom-swaync,
 #memory,
 #network,
@@ -37,7 +38,8 @@ tooltip {
   padding: 0px 16px;
 }
 
-#tray {
+#bluetooth {
+  color: @color5;
   margin-right: 10px;
   padding-left: 10px;
   padding-right: 10px;
