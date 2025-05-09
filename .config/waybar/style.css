@@ -1,13 +1,13 @@
 * {
   border: none;
-  font-family: "FiraCode Nerd Font";
+  font-family: "FiraCode Nerd Font", "Noto Sans JP", sans-serif;
   font-size: 14px;
   min-height: 0;
 }
 
 window#waybar {
   background: @base;
-  color: @color8;
+  color: @crust;
 }
 
 tooltip {
@@ -39,7 +39,7 @@ tooltip {
 }
 
 #bluetooth {
-  color: @color5;
+  color: @color3;
   margin-right: 10px;
   padding-left: 10px;
   padding-right: 10px;
@@ -70,12 +70,12 @@ tooltip {
 
 #workspaces button.focused {
   background: @color7;
-  color: @color8;
+  color: @crust;
 }
 
 #workspaces button.urgent {
   background: @color4;
-  color: @color8;
+  color: @crust;
 }
 
 #workspaces button:hover {
@@ -112,7 +112,7 @@ tooltip {
 
 #clock {
   border-right: 0px;
-  color: @color6;
+  color: @color4;
   font-weight: 600;
   margin-right: 10px;
 }
@@ -125,7 +125,7 @@ tooltip {
 }
 
 #network {
-  color: @color3;
+  color: @color0;
   margin-right: 10px;
 }
 

@@ -6,10 +6,10 @@ case $1 in
     --nightowl)
         waybar -s "$THEME_DIR/nightowl.css"
         ;;
-    --everforest)
-        waybar -s "$THEME_DIR/everforest.css"
+    --carppuccin)
+        waybar -s "$THEME_DIR/catppuccin-mocha.css"
         ;;
     *)
-        waybar -s "$THEME_DIR/catppuccin-mocha.css"
+        waybar -s "$THEME_DIR/everforest.css"
         ;;
 esac
