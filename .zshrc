@@ -85,17 +85,9 @@ explorer() {
 }
 
 
-dirs() { find . -type d -name "$1" }
-
-# sed in-place replace
-sedz() { sed -i "s/$1/$2/g" "$3" }
-
-# git shortcuts
-lazyg() { git add . && git commit -m "$*" && git push }
-
 # utility
 pubip() { curl ifconfig.me/all }
-uptimez() { uptime -p }
+
 
 # Python venv activator
 ipva() {
@@ -108,7 +100,7 @@ ipva() {
 }
 
 mystbin() {
-  if [[ ! -f "$1" ]]; then echo "File '$1' not found."; return; fi
+  if [[ ! -f "$1" ]]; then echo "File '$1' not found."J; return; fi
   curl -X POST https://mystb.in/api/paste \
        -H 'Content-Type: application/json' \
        -d "$(jq -n --arg content "$(cat "$1")" --arg filename "$(basename "$1")" '{expires:null, files:[{content:$content, filename:$filename}], password:null}')" \
@@ -148,6 +140,10 @@ alias neofetch=fastfetch
 alias fucking=sudo
 alias please=sudo
 alias pls=sudo
+
+# pacman + fzf
+alias paci="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
+alias pacr="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
 
 # bun completions
 [ -s "/home/ritam/.bun/_bun" ] && source "/home/ritam/.bun/_bun"

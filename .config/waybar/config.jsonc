@@ -2,20 +2,22 @@
   "output": "HDMI-A-2",
   "layer": "top",
   "position": "top",
-  // "margin-top": 10,
-  // "margin-left": 10,
-  // "margin-right": 10,
+  "margin-top": 7,
+  "margin-left": 7,
+  "margin-right": 7,
   "mod": "dock",
   "passtrough": false,
   "gtk-layer-shell": true,
   "height": 0,
+
+  // --- modules ---
+
   "modules-left": ["hyprland/workspaces", "clock", "cpu", "memory"],
   "modules-center": ["hyprland/window"],
   "modules-right": ["network", "bluetooth", "wireplumber", "custom/swaync"],
-  "hyprland/window": {
-    "format": "{}",
-    "max-length": 50
-  },
+
+  // ---left-modules ---
+
   "hyprland/workspaces": {
     "format": "{icon}",
     "persistent-workspaces": {
@@ -36,32 +38,6 @@
     }
   },
 
-  "cpu": {
-    "interval": 5,
-    "format": "[  {usage}% ",
-    "max-length": 10
-  },
-  "memory": {
-    "interval": 30,
-    "format": " {percentage}% ]"
-  },
-
-  "mpris": {
-    "format": "{player_icon} {title}",
-    "format-paused": "{status_icon} <i>{title}</i>",
-    "player-icons": {
-      "default": ""
-    },
-    "status-icons": {
-      "paused": ""
-    },
-    "ignored-players": ["firefox", "chromium", "brave"]
-  },
-  "tray": {
-    "icon-size": 15,
-    "tooltip": false,
-    "spacing": 10
-  },
   "clock": {
     "format": "[  {:%H:%M} ]",
     "tooltip-format": "{calendar}",
@@ -74,6 +50,64 @@
       }
     }
   },
+
+  "cpu": {
+    "interval": 5,
+    "format": "[  {usage}% ",
+    "max-length": 10
+  },
+
+  "memory": {
+    "interval": 30,
+    "format": " {percentage}% ]"
+  },
+
+  // --- middle-modules ---
+
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 50
+  },
+
+  // --- right-modules ---
+
+  "network": {
+    "format": "[ 󰤭 ]",
+    "format-wifi": "[ 󰤨 ]",
+    "format-ethernet": "[ 󱓞 ]",
+    "format-disconnected": "[ 󰤭 ]",
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "󰤢 Signal Strength: {signalStrength}%",
+    "tooltip-format-ethernet": "󰊗  Signal Strength:  {signalStrength}%",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "~/.config/waybar/scripts/wofi-wifi-menu.sh",
+    "max-length": 50,
+    "interval": 5
+  },
+
+  "bluetooth": {
+    "format": "[ 󰂯 {status} ]",
+    "format-disabled": "[ 󰂲 ]", // an empty format will hide the module
+    "format-connected": "[ 󰂯 {num_connections} ]",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "~/.config/waybar/scripts/wofi-bluetooth-menu.sh"
+  },
+
+  "wireplumber": {
+    "format": "[ {icon} {volume}% ]",
+    "format-muted": "[ 󰝟 0% ]",
+    "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "wpctl set-volume -l 1.3 @DEFAULT_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 5%-",
+    "scroll-step": 5,
+    "format-icons": {
+      "default": ["", ""]
+    }
+  },
+
   "custom/swaync": {
     "tooltip": false,
     "format": "[ {icon} ]",
@@ -94,38 +128,23 @@
     "on-click-right": "swaync-client -d -sw",
     "escape": true
   },
-  "network": {
-    "format": "[ 󰤭 ]",
-    "format-wifi": "[ 󰤨 ]",
-    "format-ethernet": "[ 󱓞 ]",
-    "format-disconnected": "[ 󰤭 ]",
-    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
-    "tooltip-format-wifi": "󰤢 Signal Strength: {signalStrength}%",
-    "tooltip-format-ethernet": "󰊗  Signal Strength:  {signalStrength}%",
-    "tooltip-format-disconnected": "Disconnected",
-    "on-click": "~/.config/waybar/scripts/wofi-wifi-menu.sh",
-    "max-length": 50,
-    "interval": 5
+
+  // --- extra conf ---
+
+  "mpris": {
+    "format": "{player_icon} {title}",
+    "format-paused": "{status_icon} <i>{title}</i>",
+    "player-icons": {
+      "default": ""
+    },
+    "status-icons": {
+      "paused": ""
+    },
+    "ignored-players": ["firefox", "chromium", "brave"]
   },
-  "wireplumber": {
-    "format": "[ {icon} {volume}% ]",
-    "format-muted": "[ 󰝟 0% ]",
-    "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
-    "on-click-right": "pavucontrol",
-    "on-scroll-up": "wpctl set-volume -l 1.3 @DEFAULT_SINK@ 5%+",
-    "on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 5%-",
-    "scroll-step": 5,
-    "format-icons": {
-      "default": ["", ""]
-    }
-  },
-  "bluetooth": {
-    "format": "[ 󰂯 {status} ]",
-    "format-disabled": "[ 󰂲 ]", // an empty format will hide the module
-    "format-connected": "[ 󰂯 {num_connections} ]",
-    "tooltip-format": "{controller_alias}\t{controller_address}",
-    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "on-click": "~/.config/waybar/scripts/wofi-bluetooth-menu.sh"
+  "tray": {
+    "icon-size": 15,
+    "tooltip": false,
+    "spacing": 10
   }
 }

@@ -5,11 +5,12 @@
     border: none;
     font-family: "FiraCode Nerd Font Propo", "Noto Sans JP", sans-serif;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 16px;
     min-height: 0;
 }
 
 window#waybar {
+    /* background:  rgba(36, 39, 58, 0.7); */
     background: @crust;
     color: black;
 }
@@ -21,12 +22,10 @@ tooltip {
 }
 
 /* ========== Module Defaults ========== */
-#custom-oslogo,
 #bluetooth,
 #custom-swaync,
 #network,
 #pulseaudio,
-#tray,
 #clock,
 #window,
 #mpris,
@@ -34,46 +33,31 @@ tooltip {
 #memory,
 #wireplumber,
 #workspaces {
-    background: @mantle;
-    border-radius: 5px;
+    background: transparent;
     font-weight: 600;
-    margin: 6px 0;
-    margin-right: 10px;
-    padding: 0 6px;
+    margin-right: 5px;
+    margin-left: 5px;
+
+    padding-top:4px;
+    padding-bottom: 4px;
+
 }
 
 /* ========== Individual Module Styles ========== */
 
-#bluetooth {
-    color: @color4;
 
-}
-
-#network {
-    color: @color3;
-}
-
-
-#pulseaudio,
-#wireplumber {
-    color: @color5;
-}
-
-#custom-swaync {
-    color: @color8;
-    margin-right: 7px;
-}
+/* --- left modules --- */
 
 #workspaces {
     border-color: transparent;
-    margin-left: 7px;
-
+    margin-left: 10px;
 }
 
 #workspaces button {
-    color: @overlay0;
+    color: @overlay1;
     padding: 5px;
     background: transparent;
+    transition: all 200ms;
 }
 
 #workspaces button.active,
@@ -94,9 +78,9 @@ tooltip {
     text-shadow: none;
 }
 
-#window {
-    background: transparent;
-    color: @overlay0;
+#clock {
+    color: @color1;
+    font-weight: 600;
 }
 
 #cpu,
@@ -116,7 +100,30 @@ tooltip {
     border-bottom-left-radius: 0;
 }
 
-#clock {
-    color: @color1;
-    font-weight: 600;
+/* --- middle modules --- */
+
+#window {
+    background: transparent;
+    color: @overlay1;
+}
+
+
+/* --- right modules --- */
+
+#network {
+    color: @color3;
+}
+
+#bluetooth {
+    color: @color4;
+}
+
+#pulseaudio,
+#wireplumber {
+    color: @color5;
+}
+
+#custom-swaync {
+    color: @color8;
+    margin-right: 10px;
 }
