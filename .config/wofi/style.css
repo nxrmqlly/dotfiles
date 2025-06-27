@@ -1,11 +1,11 @@
 /* Everforest */
-@define-color accent #A7C080;
-@define-color txt #D3C6AA;
-@define-color bg #2B3339;
-@define-color bg2 #333C43;
+@define-color accent #c6a0f6;
+@define-color txt #cad3f5;
+@define-color bg #24273a;
+@define-color bg2 #181926;
 
 * {
-    font-family: 'FiraCode Nerd Font mono';
+    font-family: 'FiraCode Nerd Font Propo';
     font-size: 14px;
 }
 
@@ -43,10 +43,12 @@ window {
 @keyframes fadeIn {
     0% {
         opacity: 0;
+        y: -100;
     }
 
     100% {
         opacity: 1;
+        y: 0;
     }
 }
 

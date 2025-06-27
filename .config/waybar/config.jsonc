@@ -1,32 +1,51 @@
 {
+  "output": "HDMI-A-2",
   "layer": "top",
   "position": "top",
+  // "margin-top": 10,
+  // "margin-left": 10,
+  // "margin-right": 10,
   "mod": "dock",
   "passtrough": false,
   "gtk-layer-shell": true,
   "height": 0,
-  "modules-left": ["hyprland/workspaces", "cpu", "memory", "mpris"],
-  "modules-center": ["clock"],
-  "modules-right": ["network", "bluetooth", "pulseaudio", "custom/swaync"],
+  "modules-left": ["hyprland/workspaces", "clock", "cpu", "memory"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": ["network", "bluetooth", "wireplumber", "custom/swaync"],
   "hyprland/window": {
     "format": "{}",
     "max-length": 50
   },
   "hyprland/workspaces": {
+    "format": "{icon}",
     "persistent-workspaces": {
       "HDMI-A-2": [1, 2, 3, 4, 5],
       "HDMI-A-1": [6, 7, 8, 9, 10]
+    },
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "十"
     }
   },
+
   "cpu": {
     "interval": 5,
-    "format": " {usage}%",
+    "format": "[  {usage}% ",
     "max-length": 10
   },
   "memory": {
     "interval": 30,
-    "format": " {percentage}%"
+    "format": " {percentage}% ]"
   },
+
   "mpris": {
     "format": "{player_icon} {title}",
     "format-paused": "{status_icon} <i>{title}</i>",
@@ -44,7 +63,7 @@
     "spacing": 10
   },
   "clock": {
-    "format": "{:%H:%M 󰃭 %A %d}",
+    "format": "[  {:%H:%M} ]",
     "tooltip-format": "{calendar}",
     "calendar": {
       "format": {
@@ -57,7 +76,7 @@
   },
   "custom/swaync": {
     "tooltip": false,
-    "format": "{icon}",
+    "format": "[ {icon} ]",
     "format-icons": {
       "notification": "󱅫",
       "none": "󰂚",
@@ -76,10 +95,10 @@
     "escape": true
   },
   "network": {
-    "format": "󰤭 ",
-    "format-wifi": "󰤨 {bandwidthTotalBytes}",
-    "format-ethernet": "󱓞  Ethernet {bandwidthTotalBytes}",
-    "format-disconnected": "󰤭 ",
+    "format": "[ 󰤭 ]",
+    "format-wifi": "[ 󰤨 ]",
+    "format-ethernet": "[ 󱓞 ]",
+    "format-disconnected": "[ 󰤭 ]",
     "tooltip-format": "{ifname} via {gwaddr} 󰊗",
     "tooltip-format-wifi": "󰤢 Signal Strength: {signalStrength}%",
     "tooltip-format-ethernet": "󰊗  Signal Strength:  {signalStrength}%",
@@ -88,22 +107,22 @@
     "max-length": 50,
     "interval": 5
   },
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": "󰝟  0%",
+  "wireplumber": {
+    "format": "[ {icon} {volume}% ]",
+    "format-muted": "[ 󰝟 0% ]",
     "on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
     "on-click-right": "pavucontrol",
     "on-scroll-up": "wpctl set-volume -l 1.3 @DEFAULT_SINK@ 5%+",
     "on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 5%-",
     "scroll-step": 5,
     "format-icons": {
-      "default": [" ", " "]
+      "default": ["", ""]
     }
   },
   "bluetooth": {
-    "format": "󰂯 {status}",
-    "format-disabled": "󰂲", // an empty format will hide the module
-    "format-connected": "󰂯 {num_connections}",
+    "format": "[ 󰂯 {status} ]",
+    "format-disabled": "[ 󰂲 ]", // an empty format will hide the module
+    "format-connected": "[ 󰂯 {num_connections} ]",
     "tooltip-format": "{controller_alias}\t{controller_address}",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",

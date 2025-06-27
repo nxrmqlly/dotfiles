@@ -1,5 +1,0 @@
-(defwidget poweroff []
-    (button :class "poweroff"
-        :onclick "loginctl poweroff"
-        "⏻")
-    )

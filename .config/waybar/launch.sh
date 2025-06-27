@@ -10,6 +10,6 @@ case $1 in
         waybar -s "$THEME_DIR/catppuccin-mocha.css"
         ;;
     *)
-        waybar -s "$THEME_DIR/everforest.css"
+        waybar -s "$THEME_DIR/catppuccin-macchiato.css"
         ;;
 esac

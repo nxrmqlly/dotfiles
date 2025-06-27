@@ -5,17 +5,71 @@
 # Only run if interactive shell
 [[ $- != *i* ]] && return
 
+
 # ====== Plugins ======
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+# Download Zinit, if it's not there yet
+if [ ! -d "$ZINIT_HOME" ]; then
+   mkdir -p "$(dirname $ZINIT_HOME)"
+   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+
+source "${ZINIT_HOME}/zinit.zsh"
+
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
+
+zinit snippet OMZL::git.zsh
+zinit snippet OMZP::git
+zinit snippet OMZP::sudo
+zinit snippet OMZP::archlinux
+zinit snippet OMZP::aws
+zinit snippet OMZP::kubectl
+zinit snippet OMZP::kubectx
+zinit snippet OMZP::command-not-found
+
+autoload -Uz compinit && compinit
+
+zinit cdreplay -q
+
+# ===== Keybindings =====
+bindkey -e
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+bindkey '^[w' kill-region
+
+# ===== History =====
+
+# History
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 
 # ======= Terminal CLIs =======
 eval "$(zoxide init zsh)"
-
+eval $(thefuck --alias fuck)
 
 # ======= Environment =======
 export LANG=en_US.UTF-8
-export PATH="$PATH:$HOME/.local/bin:$HOME/.spicetify:$HOME/bin:$HOME/.cargo/bin"
 
 # ======= Functions =======
 
@@ -31,22 +85,12 @@ explorer() {
 }
 
 
-md5() { md5sum "$@" }
-sha1() { sha1sum "$@" }
-sha256() { sha256sum "$@" }
-sha512() { sha512sum "$@" }
-
 dirs() { find . -type d -name "$1" }
-
-# find and grep alternatives
-find-file() { find . -iname "*$1*" 2>/dev/null }
-grepz() { grep "$1" "$2" }
 
 # sed in-place replace
 sedz() { sed -i "s/$1/$2/g" "$3" }
 
 # git shortcuts
-gcom() { git add . && git commit -m "$*" }
 lazyg() { git add . && git commit -m "$*" && git push }
 
 # utility
@@ -77,6 +121,9 @@ inspire() { curl -s https://www.affirmations.dev/ | jq -r '.affirmation' | cowsa
 export EDITOR=$(command -v nvim || command -v code || command -v nano || command -v vim || command -v vi || echo "nano")
 
 
+# ======= Keybinds =======
+bindkey "^[[3~" delete-char
+
 # ======= Aliases =======
 alias cd..='cd ..'
 alias cd...='cd ../..'
@@ -92,24 +139,31 @@ alias g='git'
 alias vim="$EDITOR"  # dynamically set
 
 alias cat='bat --color=always --theme="Catppuccin Macchiato"'
+alias fzfp='fzf --preview "cat {}"'
 
+# "neofetch is no longer maintained :nerd: :point_up:"
+alias neofetch=fastfetch
 
+# yes.
+alias fucking=sudo
+alias please=sudo
+alias pls=sudo
 
 # bun completions
 [ -s "/home/ritam/.bun/_bun" ] && source "/home/ritam/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 
 export LD_LIBRARY_PATH=/usr/lib/openssl-1.1:$LD_LIBRARY_PATH
 
+# ===== PATH =====
+export PATH="$PATH:$HOME/.local/bin:$HOME/.spicetify:$HOME/bin:$HOME/.cargo/bin:$BUN_INSTALL/bin"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # loads nvm bash_completion
 
 # ======= Oh My Posh (Prompt) =======
 if command -v oh-my-posh >/dev/null; then
   eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/themes/ritam.omp.json)"
 fi
+
+pfetch
