@@ -76,11 +76,13 @@
     "format-wifi": "[ 󰤨 ]",
     "format-ethernet": "[ 󱓞 ]",
     "format-disconnected": "[ 󰤭 ]",
-    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
-    "tooltip-format-wifi": "󰤢 Signal Strength: {signalStrength}%",
-    "tooltip-format-ethernet": "󰊗  Signal Strength:  {signalStrength}%",
-    "tooltip-format-disconnected": "Disconnected",
-    "on-click": "~/.config/waybar/scripts/wofi-wifi-menu.sh",
+
+    "tooltip-format": "{ifname} → {gwaddr}",
+    "tooltip-format-wifi": "󰤨 {essid} {signalStrength}%\n{ipaddr}\n{ifname} → {gwaddr}\n\n󰓢 {bandwidthTotalBytes} ({frequency}G)",
+    "tooltip-format-ethernet": "󱓞 Ethernet\n󰆋 {ipaddr}\n {ifname} → {gwaddr}",
+    "tooltip-format-disconnected": "󰜺 Disconnected",
+
+    "on-click": "~/scripts/rofi-wifi-menu.sh",
     "max-length": 50,
     "interval": 5
   },
@@ -92,7 +94,7 @@
     "tooltip-format": "{controller_alias}\t{controller_address}",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "on-click": "~/.config/waybar/scripts/wofi-bluetooth-menu.sh"
+    "on-click": "~/scripts/rofi-bluetooth-menu.sh"
   },
 
   "wireplumber": {
