@@ -15,10 +15,10 @@ cd ~/dotfiles
 stow .
 ```
 
-
-| Component           | Software            |
 ## Desktop Stack
 Colors of **Catppuccin Macchiato**
+
+| Component           | Software            |
 | :------------------ | :------------------ |
 | Distro              | Arch Linux (btw)    |
 | WM                  | Hyprland            |
