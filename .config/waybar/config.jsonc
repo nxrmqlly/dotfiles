@@ -14,7 +14,7 @@
 
   "modules-left": ["hyprland/workspaces", "clock", "cpu", "memory"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["network", "bluetooth", "wireplumber", "custom/swaync"],
+  "modules-right": ["network", "bluetooth", "wireplumber", "custom/power"],
 
   // ---left-modules ---
 
@@ -94,7 +94,8 @@
     "tooltip-format": "{controller_alias}\t{controller_address}",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "on-click": "~/scripts/rofi-bluetooth-menu.sh"
+    "on-click": "~/scripts/rofi-bluetooth-menu.sh",
+    "on-click-right": "blueberry"
   },
 
   "wireplumber": {
@@ -129,6 +130,12 @@
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
     "escape": true
+  },
+
+  "custom/power": {
+    "format": "[  ]",
+    "on-click": "~/scripts/rofi-power-menu.sh",
+    "on-click-right": "swaync-client -t -sw"
   },
 
   // --- extra conf ---

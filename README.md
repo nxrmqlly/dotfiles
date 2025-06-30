@@ -16,3 +16,18 @@ git clone https://github.com/nxrmqlly/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 stow .
 ```
+
+## Desktop Stack
+| Component           | Software            |
+| :------------------ | :------------------ |
+| WM                  | Hyprland            |
+| Status Bar          | Waybar              |
+| Notification Daemon | swaync              |
+| Wallpaper Daemon    | swww-daemon         |
+| Idle and Lock       | hypridle + hyprlock |
+| Clipboard           | wl-paste + cliphist |
+| Terminal Emulator   | Kitty               |
+| App Launcher        | rofi                |
+| Screenshots         | hyprshot            |
+| Prompt              | oh-my-posh          |
+| Shell               | zsh (w/ `zinit`)    |

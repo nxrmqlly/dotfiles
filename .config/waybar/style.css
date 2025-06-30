@@ -23,7 +23,7 @@ tooltip {
 
 /* ========== Module Defaults ========== */
 #bluetooth,
-#custom-swaync,
+#custom-power,
 #network,
 #pulseaudio,
 #clock,
@@ -124,7 +124,7 @@ tooltip {
     color: @color5;
 }
 
-#custom-swaync {
+#custom-power {
     color: @color8;
     margin-right: 10px;
 }
